@@ -1,9 +1,12 @@
 package org.generation.italy.eventi;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProgrammEventi {
+import javax.swing.event.ListDataEvent;
+
+public class ProgrammEventi<E> {
 	
 	private String titolo;
 	private List<Evento> eventi;
@@ -17,6 +20,18 @@ public class ProgrammEventi {
 	// metodo aggiunta evento
 	public void aggiungiEvento() throws Exception {
 		eventi.add(new Evento(titolo, null, 0));
+	}
+	
+	// metodo lista eventi in una certa data
+	public ArrayList<Evento> eventiStessaData(LocalDate data) {
+		ArrayList<Evento> stessaData = new ArrayList<Evento>();
+		
+		for(Evento s : eventi) {
+			if(s.getData().isEqual(data)) {
+
+			}
+		}
+		return stessaData;
 	}
 
 }
