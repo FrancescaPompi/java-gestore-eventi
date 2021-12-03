@@ -64,12 +64,12 @@ public class Main {
 				
 				System.out.print("Quanti posti vuoi disdire? ");
 				int numeroDisdette = scan.nextInt();
-				System.out.println("Hai disdetto " + numeroDisdette + " posti.");
-				for(int i = 0; i <= numeroDisdette; i++) {
+				for(int i = 0; i < numeroDisdette; i++) {
 					evento.disdici();
 				}
+				System.out.println("Hai disdetto " + numeroDisdette + " posti.");
 				numeroPrenotazioni -= numeroDisdette;
-				System.out.println("Hai prenotato: " + numeroPrenotazioni + " posti.");
+				System.out.println("Posti prenotati: " + numeroPrenotazioni);
 				postiDisponibili = postiTotaliEvento - numeroPrenotazioni;
 				System.out.println("I posti ancora disponibili sono: " + postiDisponibili);
 							
