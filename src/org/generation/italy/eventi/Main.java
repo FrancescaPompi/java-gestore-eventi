@@ -53,27 +53,25 @@ public class Main {
 				
 				System.out.print("Vuoi disdire? s/n ");
 				scan.nextLine();
-				do {
-					sceltaUtente = scan.nextLine();
-					if(sceltaUtente.equals("n")) {
-						System.out.println("Non hai effettuato disdette.");
-						System.out.println("Hai prenotato: " + numeroPrenotazioni + " posti.");
-						System.out.println("I posti ancora disponibili sono: " + postiDisponibili);
-						valid = true;
-						break;
-					}
-					
-					System.out.print("Quanti posti vuoi disdire? ");
-					int numeroDisdette = scan.nextInt();
-					System.out.println("Hai disdetto " + numeroDisdette + " posti.");
-					for(int i = 0; i <= numeroPrenotazioni; i++) {
-						evento.disdici();
-					}
+				sceltaUtente = scan.nextLine();
+				if(sceltaUtente.equals("n")) {
+					System.out.println("Non hai effettuato disdette.");
 					System.out.println("Hai prenotato: " + numeroPrenotazioni + " posti.");
-					postiDisponibili = postiTotaliEvento - numeroPrenotazioni;
 					System.out.println("I posti ancora disponibili sono: " + postiDisponibili);
-
-				} while(!sceltaUtente.equals("s"));
+					valid = true;
+					break;
+				}
+				
+				System.out.print("Quanti posti vuoi disdire? ");
+				int numeroDisdette = scan.nextInt();
+				System.out.println("Hai disdetto " + numeroDisdette + " posti.");
+				for(int i = 0; i <= numeroDisdette; i++) {
+					evento.disdici();
+				}
+				numeroPrenotazioni -= numeroDisdette;
+				System.out.println("Hai prenotato: " + numeroPrenotazioni + " posti.");
+				postiDisponibili = postiTotaliEvento - numeroPrenotazioni;
+				System.out.println("I posti ancora disponibili sono: " + postiDisponibili);
 							
 			} while(!sceltaUtente.equals("s"));
 			
