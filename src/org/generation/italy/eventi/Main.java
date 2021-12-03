@@ -34,8 +34,12 @@ public class Main {
 			System.out.println("Hai creato l'evento: " + titoloEvento.toUpperCase() + " in data " + dataEvento + "; numero di posti: " + postiTotaliEvento);
 			System.out.print("Quanti posti vuoi prenotare? ");
 			int numeroPrenotazioni = scan.nextInt();
-			for(int i = 0; i <= numeroPrenotazioni; i++) {
-				evento.prenota();
+			if(numeroPrenotazioni == 0) {
+				System.out.println("Non hai effettuato prenotazioni, grazie per aver usato il programma!");
+			} else {
+				for(int i = 0; i <= numeroPrenotazioni; i++) {
+					evento.prenota();
+				}
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

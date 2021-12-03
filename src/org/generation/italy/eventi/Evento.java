@@ -63,7 +63,7 @@ public class Evento {
 		if(!data.isAfter(LocalDate.now())) {
 			throw new Exception("La data è già passata.");
 		} else if(numeroPostiDisponibili == 0) {
-			throw new Exception("I posti disponibili sono terminati.");
+			throw new Exception("I posti disponibili non sono sufficienti per effettuare la prenotazione. Grazie.");
 		} else {
 			this.numeroPostiPrenotati++;
 		}
