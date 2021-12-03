@@ -11,19 +11,19 @@ public class Evento {
 	private int numeroPostiPrenotati;
 	
 	// costruttore
-	public Evento(String titolo, LocalDate data, int numeroPostiTotali) throws IllegalArgumentException {
+	public Evento(String titolo, LocalDate data, int numeroPostiTotali) throws Exception {
 		this.titolo = titolo;
 		
 		if(data.isAfter(LocalDate.now())) {
 			this.data = data;
 		} else {
-			throw new IllegalArgumentException("Errore! La data è già passata.");
+			throw new Exception("Errore! La data è già passata.");
 		}
 		
 		if(numeroPostiTotali > 0) {
 			this.numeroPostiTotali = numeroPostiTotali;
 		} else {
-			throw new IllegalArgumentException("Errore! Il numero di posti totali deve essere positivo.");
+			throw new Exception("Errore! Il numero di posti totali deve essere positivo.");
 		}
 		
 		this.numeroPostiPrenotati = 0;
@@ -56,5 +56,21 @@ public class Evento {
 	}
 	
 	
+	// metodi
+	public void prenota() throws Exception {
+		int numeroPostiDisponibili = this.numeroPostiTotali - this.numeroPostiPrenotati;
+		if(!data.isAfter(LocalDate.now())) {
+			throw new Exception("La data è già passata.");
+		} else if(numeroPostiDisponibili == 0) {
+			throw new Exception("I posti disponibili sono terminati.");
+		} else {
+			this.numeroPostiPrenotati++;
+		}
+		
+	}
+	
+	public void disdici() {
+		
+	}
 
 }
