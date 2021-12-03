@@ -33,5 +33,11 @@ public class ProgrammEventi<E> {
 		}
 		return stessaData;
 	}
+	
+	// metodo numero eventi
+	public int numeroProgrammEventi() {
+		int numeroProgrammEventi = eventi.size();
+		return numeroProgrammEventi;
+	}
 
 }
