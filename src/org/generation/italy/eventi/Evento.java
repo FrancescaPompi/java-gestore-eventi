@@ -83,10 +83,10 @@ public class Evento {
 
 	// metodo stringa di recap
 	public String toString() {
-		String dataFormatatta;
+		String dataFormattata;
 		DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		dataFormatatta = this.data.format(df);
-		return dataFormatatta + " - " + this.titolo;
+		dataFormattata = this.data.format(df);
+		return dataFormattata + " - " + this.titolo;
 	}
 	
 	
