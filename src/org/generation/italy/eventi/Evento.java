@@ -1,6 +1,7 @@
 package org.generation.italy.eventi;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Evento {
 	
@@ -56,7 +57,7 @@ public class Evento {
 	}
 	
 	
-	// metodi
+	// metodo prenota
 	public void prenota() throws Exception {
 		int numeroPostiDisponibili = this.numeroPostiTotali - this.numeroPostiPrenotati;
 		if(!data.isAfter(LocalDate.now())) {
@@ -69,8 +70,25 @@ public class Evento {
 		
 	}
 	
-	public void disdici() {
-		
+	// metodo disdici
+	public void disdici() throws Exception {
+		if(!data.isAfter(LocalDate.now())) {
+			throw new Exception("La data è già passata.");
+		} else if(numeroPostiPrenotati == 0) {
+			throw new Exception("Non ci sono prenotazioni.");
+		} else {
+			this.numeroPostiPrenotati--;
+		}
 	}
+
+	// metodo stringa di recap
+	public String toString() {
+		String dataFormatatta;
+		DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		dataFormatatta = this.data.format(df);
+		return dataFormatatta + " - " + this.titolo;
+	}
+	
+	
 
 }
