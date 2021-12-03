@@ -51,23 +51,32 @@ public class Main {
 				int postiDisponibili = postiTotaliEvento - numeroPrenotazioni;
 				System.out.println("I posti ancora disponibili sono: " + postiDisponibili);
 				
+				System.out.print("Vuoi disdire? s/n ");
+				scan.nextLine();
+				do {
+					sceltaUtente = scan.nextLine();
+					if(sceltaUtente.equals("n")) {
+						System.out.println("Non hai effettuato disdette.");
+						System.out.println("Hai prenotato: " + numeroPrenotazioni + " posti.");
+						System.out.println("I posti ancora disponibili sono: " + postiDisponibili);
+						valid = true;
+						break;
+					}
+					
+					System.out.print("Quanti posti vuoi disdire? ");
+					int numeroDisdette = scan.nextInt();
+					System.out.println("Hai disdetto " + numeroDisdette + " posti.");
+					for(int i = 0; i <= numeroPrenotazioni; i++) {
+						evento.disdici();
+					}
+					System.out.println("Hai prenotato: " + numeroPrenotazioni + " posti.");
+					postiDisponibili = postiTotaliEvento - numeroPrenotazioni;
+					System.out.println("I posti ancora disponibili sono: " + postiDisponibili);
+
+				} while(!sceltaUtente.equals("s"));
+							
 			} while(!sceltaUtente.equals("s"));
 			
-			
-			
-//			if(numeroPrenotazioni == 0) {
-//				System.out.println("Non hai effettuato prenotazioni. Grazie per aver usato il programma!");
-//			} 
-			
-//			System.out.println("Quanti posti vuoi disdire?");
-//			int numeroDisdetti = scan.nextInt();
-//			if(numeroDisdetti == 0) {
-//				System.out.println("Nessuna disdetta: hai confermato la prenotazione effettuata.");
-//			} else if(numeroDisdetti > numeroPrenotazioni){
-//				System.out.println("Errore: il numero di posti prenotati è inferiore.");
-//			} else {
-////				for(int i = 0; )
-//			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
