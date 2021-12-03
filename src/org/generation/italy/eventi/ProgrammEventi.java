@@ -4,8 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.event.ListDataEvent;
-
 public class ProgrammEventi<E> {
 	
 	private String titolo;
@@ -38,6 +36,11 @@ public class ProgrammEventi<E> {
 	public int numeroProgrammEventi() {
 		int numeroProgrammEventi = eventi.size();
 		return numeroProgrammEventi;
+	}
+	
+	// metodo che svuota la lista
+	public void clear() {
+		eventi.clear();
 	}
 
 }
